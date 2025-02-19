@@ -1,9 +1,19 @@
-import './App.css'
+import './App.css';
+import plusSvg from './assets/plus.svg';
 
-function App() {
+export const App = () => {
   return (
-    <div>Hello</div>
-  )
-}
-
-export default App
+    <div className='container'>
+      <div className='newTask'>
+        <span className='greyFont'>Новая задача</span>
+        <div className='addSection'>
+          <input type='text'/>
+          <button className='addButton'>
+            <img src={plusSvg} alt='Plus icon' />
+            Добавить
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
