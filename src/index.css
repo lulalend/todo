@@ -3,10 +3,18 @@
 :root {
   --primary-color: #FFFFFF;
   --secondary-color: #315bff;
+  --secondary-color-light: #466cff;
+  --secondary-color-dark: #0035a0;
+  --white: #FFFFFF;
+  --dark-shadow: #BABECC;
+
   --light-gray: #E4E4E7;
-  --gray: #d6d6d6;
+  --gray: #D6D6D6;
   --gray-font: #71717A;
-  --font-color: #2d2d39
+  --font-color: #2D2D39;
+
+  --shadow: 2px 2px 5px  var(--dark-shadow), -2px -2px 5px var(--white);
+  --transition: all 0.2s ease-in-out;
 }
 
 * {
@@ -24,4 +32,8 @@ body {
 
 .greyFont {
   color: var(--gray-font);
+}
+
+button {
+  cursor: pointer;
 }
