@@ -28,7 +28,16 @@ body {
   font-family: 'Inter', sans-serif;
   color: var(--font-color);
   font-weight: 400;
+
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
 
 .greyFont {
   color: var(--gray-font);
