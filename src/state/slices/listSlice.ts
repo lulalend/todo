@@ -8,7 +8,7 @@ type ListState = {
 }
 
 const initialState: ListState = {
-  items: [],
+  items: JSON.parse(localStorage.getItem('reduxState') || '[]'),
   filter: 'all',
   sortBy: 'name',
 };
@@ -41,9 +41,19 @@ const listSlice = createSlice({
     setSortBy: (state, action: PayloadAction<Sort>) => {
       state.sortBy = action.payload;
     },
+    setItems: (state, action: PayloadAction<Task[]>) => {
+      state.items = action.payload;
+    },
   },
 });
 
-export const { addItem, removeItem, toggleCompleted, setFilter, setSortBy } = listSlice.actions;
+export const {
+  addItem,
+  removeItem,
+  toggleCompleted,
+  setFilter,
+  setSortBy,
+  setItems
+} = listSlice.actions;
 
 export default listSlice.reducer;

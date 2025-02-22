@@ -2,13 +2,27 @@ import './App.css';
 import plusSvg from './assets/plus.svg';
 import { TaskList } from './components/taskList/TaskList.tsx';
 import { ListSettings } from './components/listSettings/ListSettings.tsx';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addItem } from './state/slices/listSlice.ts';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, setItems } from './state/slices/listSlice.ts';
+import { RootState } from './state/store.ts';
 
 export const App = () => {
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
+  const tasks = useSelector((state: RootState) => state.list.items);
+
+  useEffect(() => {
+    const savedState = localStorage.getItem('reduxState');
+    if (savedState) {
+      const parsedState = JSON.parse(savedState);
+      dispatch(setItems(parsedState));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    localStorage.setItem('reduxState', JSON.stringify(tasks));
+  }, [tasks]);
 
   const handleAddItem = () => {
     if (inputValue.trim()) {
