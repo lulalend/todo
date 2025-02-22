@@ -1,30 +1,20 @@
-import { useState } from 'react';
 import { Task } from '../../types/types.ts';
 import trashSvg from '../../assets/trash.svg';
 import './style.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store.ts';
+import { removeItem, toggleCompleted } from '../../slices/listSlice.ts';
 
 export const TaskList = () => {
-  const [tasks, setTasks] = useState<Task[]>([
-    {
-      id: 1,
-      text: 'Городской цикл',
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      text: 'Закрыто',
-      isCompleted: true,
-    },
-  ]);
+  const dispatch = useDispatch();
+  const tasks = useSelector((state: RootState) => state.list.items);
 
   const deleteTask = (id: number) => {
-    setTasks(tasks.filter(task => task.id !== id));
+    dispatch(removeItem(id));
   };
 
   const toggleTask = (id: number) => {
-    setTasks(tasks.map(task =>
-      task.id === id ? {...task, isCompleted: !task.isCompleted} : task
-    ));
+    dispatch(toggleCompleted(id));
   };
 
   return (
