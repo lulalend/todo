@@ -1,5 +1,5 @@
 .dropdown {
-    padding: 10px;
+    padding: 10px 30px 10px 10px;
     width: fit-content;
 
     outline: none;
@@ -16,4 +16,8 @@
     transition: var(--transition);
 
     appearance: none;
+    background-image: url('../../../../assets/arrow.svg');
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    background-size: 20px;
 }
