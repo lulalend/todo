@@ -1,6 +1,7 @@
 import './App.css';
 import plusSvg from './assets/plus.svg';
 import { TaskList } from './components/taskList/TaskList.tsx';
+import { ListSettings } from './components/listSettings/ListSettings.tsx';
 
 export const App = () => {
   return (
@@ -19,6 +20,7 @@ export const App = () => {
         <h1>Список задач</h1>
         <div className='taskContainer'>
           <TaskList />
+          <ListSettings />
         </div>
       </main>
     </div>

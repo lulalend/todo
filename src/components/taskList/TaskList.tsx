@@ -28,7 +28,7 @@ export const TaskList = () => {
   };
 
   return (
-    <div className='taskList'>
+    <div className='listContainer'>
       {tasks.map((task: Task) => (
         <div key={task.id} className='task'>
           <input

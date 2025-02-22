@@ -1,0 +1,17 @@
+.settingsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    padding: 20px;
+
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 30px;
+}

@@ -1,0 +1,19 @@
+.dropdown {
+    padding: 10px;
+    width: fit-content;
+
+    outline: none;
+    border: 2px var(--gray) solid;
+    border-radius: 4px;
+
+    background-color: var(--white);
+
+    font-family: inherit;
+    color: var(--font-color);
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: var(--transition);
+
+    appearance: none;
+}
