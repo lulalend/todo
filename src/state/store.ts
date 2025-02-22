@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import listReducer from './slices/listSlice';
+import listReducer from './slices/listSlice.ts';
 
 export const store = configureStore({
   reducer: {

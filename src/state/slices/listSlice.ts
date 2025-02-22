@@ -1,12 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { Task } from '../types/types.ts';
+import type { Filter, Sort, Task } from '../../types/types.ts';
 
 type ListState = {
   items: Task[];
+  filter: Filter;
+  sortBy: Sort;
 }
 
 const initialState: ListState = {
   items: [],
+  filter: 'all',
+  sortBy: 'name',
 };
 
 const listSlice = createSlice({
@@ -31,9 +35,15 @@ const listSlice = createSlice({
         item.id === action.payload ? {...item, isCompleted: !item.isCompleted} : item
       );
     },
+    setFilter: (state, action: PayloadAction<Filter>) => {
+      state.filter = action.payload;
+    },
+    setSortBy: (state, action: PayloadAction<Sort>) => {
+      state.sortBy = action.payload;
+    },
   },
 });
 
-export const { addItem, removeItem, toggleCompleted } = listSlice.actions;
+export const { addItem, removeItem, toggleCompleted, setFilter, setSortBy } = listSlice.actions;
 
 export default listSlice.reducer;

@@ -3,3 +3,7 @@ export type Task = {
   text: string;
   isCompleted: boolean;
 }
+
+export type Filter = 'all' | 'active' | 'completed';
+
+export type Sort = 'name' | 'status';

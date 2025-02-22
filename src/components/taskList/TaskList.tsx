@@ -2,12 +2,12 @@ import { Task } from '../../types/types.ts';
 import trashSvg from '../../assets/trash.svg';
 import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store.ts';
-import { removeItem, toggleCompleted } from '../../slices/listSlice.ts';
+import { removeItem, toggleCompleted } from '../../state/slices/listSlice.ts';
+import { selectSortedTasks } from '../../state/listSelectors.ts';
 
 export const TaskList = () => {
   const dispatch = useDispatch();
-  const tasks = useSelector((state: RootState) => state.list.items);
+  const tasks = useSelector(selectSortedTasks);
 
   const deleteTask = (id: number) => {
     dispatch(removeItem(id));

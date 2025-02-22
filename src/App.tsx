@@ -4,7 +4,7 @@ import { TaskList } from './components/taskList/TaskList.tsx';
 import { ListSettings } from './components/listSettings/ListSettings.tsx';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addItem } from './slices/listSlice.ts';
+import { addItem } from './state/slices/listSlice.ts';
 
 export const App = () => {
   const [inputValue, setInputValue] = useState('');

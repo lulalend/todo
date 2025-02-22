@@ -1,11 +1,14 @@
 import './style.css';
-import { useState } from 'react';
 import { RadioGroup } from './components/radioGroup/RadioGroup.tsx';
 import { Dropdown } from './components/dropdown/Dropdown.tsx';
+import { RootState } from '../../state/store.ts';
+import { useDispatch, useSelector } from 'react-redux';
+import { Filter, Sort } from '../../types/types.ts';
+import { setFilter, setSortBy } from '../../state/slices/listSlice.ts';
 
 export const ListSettings = () => {
-  const [status, setStatus] = useState<'all' | 'active' | 'completed'>('all');
-  const [sortBy, setSortBy] = useState<'name' | 'status'>('name');
+  const dispatch = useDispatch();
+  const { filter, sortBy } = useSelector((state: RootState) => state.list);
 
   const statusOptions = [
     { value: 'all', label: 'Все' },
@@ -24,8 +27,8 @@ export const ListSettings = () => {
         <span className='greyFont'>Статус</span>
         <RadioGroup
           options={statusOptions}
-          selectedValue={status}
-          onChange={(value) => setStatus(value as 'all' | 'active' | 'completed')}
+          selectedValue={filter}
+          onChange={(value) => dispatch(setFilter(value as Filter))}
         />
       </div>
       <div className='row'>
@@ -33,7 +36,7 @@ export const ListSettings = () => {
         <Dropdown
           options={sortOptions}
           selectedValue={sortBy}
-          onChange={(value) => setSortBy(value as 'name' | 'status')}
+          onChange={(value) => dispatch(setSortBy(value as Sort))}
         />
       </div>
     </div>
