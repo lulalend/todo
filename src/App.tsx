@@ -17,6 +17,12 @@ export const App = () => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleAddItem();
+    }
+  };
+
   return (
     <div className='container'>
       <div className='newTask'>
@@ -26,8 +32,12 @@ export const App = () => {
             type='text'
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
-          <button className='addButton' onClick={handleAddItem}>
+          <button
+            className='addButton'
+            onClick={handleAddItem}
+          >
             <img src={plusSvg} alt='Plus icon' />
             Добавить
           </button>
