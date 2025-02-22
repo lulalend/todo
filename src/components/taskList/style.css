@@ -26,6 +26,9 @@
 .checkbox {
     opacity: 0;
     position: absolute;
+
+    width: 30px;
+    height: 30px;
 }
 
 .checkboxLabel {
